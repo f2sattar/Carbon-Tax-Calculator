@@ -1,0 +1,472 @@
+/* This file deals with the styling for the carbon tax calculator. Anything related to styling can be found here. */
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* This line gives us the font for the text in the Carbon Tax Calculator */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* The "*" means that this section will affect all elements in the Carbon Tax Calculator */
+/* This section will affect all elements in the Carbon Tax Calculator */
+* {
+  font-family: 'Poppins', sans-serif;
+  /* This is the text for the Carbon Tax Calculator */
+  color: black;
+  /* The text will be black. */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Logo */
+/* This section will change the position and size of the Rushby Energy logo.*/
+img {
+  width: 146px;
+  /* The width of the logo */
+  height: 146px;
+  /* The height of the logo */
+  margin-left: 30px;
+  /* 30px from the left side */
+  margin-top: 30px;
+  /* 30px down from the top */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Table */
+/* This section will style the rows, and cells in the table. */
+th,
+td {
+  font-size: 15px;
+  /* This line changes the font size of the rows and cells in table. */
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  padding: 1em 2em;
+  /* This sets the length and width of the table cells. */
+  text-align: center;
+  /* This line centers text. */
+}
+
+/* This section will style the table. */
+table {
+  width: 100%;
+  /* The width will take up the entire width of the Carbon Tax Calculator. */
+}
+
+/* This section is going to colour table headings with this shade of green. */
+.tableheading thead th {
+  background-color: #cdfdbb;
+  /* This sets the colour of the table headings */
+}
+
+/* This section is going to colour table headings with this shade of green. */
+.tableheading2 thead th {
+  background-color: #adffb0;
+  /* This sets the colour of the table headings */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Button */
+/* This section styles the buttons in the Carbon Tax Calculator. */
+button {
+  margin: 10px;
+  /* Space around input*/
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  padding: 1em 2em;
+  /* This sets the length and width of the button. */
+  font-size: 15px;
+  /* This line changes the font size of the rows and cells in table. */
+  width: 40%;
+  /* The button will take up 40% of the webpage width. */
+  background-color: #adffb0;
+  /* This line is going to make the button green. */
+  line-height: 30px;
+  /* This line centers the text vertically. */
+  text-align: center;
+  /* This line centers text. */
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the button. */
+}
+
+/* This section styles the hovering for the buttons in the Carbon Tax Calculator. */
+button:hover {
+  background-size: 110% 110% !important;
+  /* The button is going to get larger when the user hovers over it. */
+  padding: 1.3em 2.1em;
+  /* This sets the length and width of the button hover. */
+  background-color: white;
+  /* The button will be white when the user hovers over it.*/
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the button hover. */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Input */
+/* This section styles the input sections in the Carbon Tax Calculator. */
+input[type = number]{
+  margin: 10px;
+  /* Space around input*/
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  padding: 1em 2em;
+  /* This sets the length and width of the input. */
+  font-size: 15px;
+  /* This line changes the font size of the rows and cells in table. */
+  line-height: 30px;
+  /* This line centers the text vertically. */
+  width: 40%;
+  /* The button will take up 40% of the webpage width. */
+  background-color: #cdfdbb;
+  /* This line is going to make the input green. */
+  text-align: center;
+  /* This line centers text. */
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the input. */
+}
+
+/* This section styles the hovering for the input sections in the Carbon Tax Calculator. */
+input[type = number]:hover {
+  background-size: 110% 110% !important;
+  /* The input is going to get larger when the user hovers over it. */
+  padding: 1.3em 2.1em;
+  /* This sets the length and width of the input hover. */
+  background-color: white;
+  /* The button will be white when the user hovers over it.*/
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the input hover. */
+}
+
+/* This section styles any input that the user clicks on in the Carbon Tax Calculator. */
+input[type = number]:focus {
+  outline: 1px solid darkgreen;
+  /* The input will have a dark green border when the user clicks on it. */
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the input when the user clicks on it. */
+}
+
+input[type = date]{
+  margin: 10px;
+  /* Space around input*/
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  padding: 1em 2em;
+  /* This sets the length and width of the input. */
+  font-size: 15px;
+  /* This line changes the font size of the rows and cells in table. */
+  line-height: 30px;
+  /* This line centers the text vertically. */
+  width: 40%;
+  /* The button will take up 40% of the webpage width. */
+  background-color: #cdfdbb;
+  /* This line is going to make the input green. */
+  text-align: center;
+  /* This line centers text. */
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the input. */
+}
+
+/* This section styles the hovering for the input sections in the Carbon Tax Calculator. */
+input[type = date]:hover {
+  background-size: 110% 110% !important;
+  /* The input is going to get larger when the user hovers over it. */
+  padding: 1.3em 2.1em;
+  /* This sets the length and width of the input hover. */
+  background-color: white;
+  /* The button will be white when the user hovers over it.*/
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the input hover. */
+}
+
+/* This section styles any input that the user clicks on in the Carbon Tax Calculator. */
+input[type = date]:focus {
+  outline: 1px solid darkgreen;
+  /* The input will have a dark green border when the user clicks on it. */
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the input when the user clicks on it. */
+}
+
+.input-text{
+  margin: 10px;
+  /* Space around input*/
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  padding: 1em 2em;
+  /* This sets the length and width of the input. */
+  font-size: 15px;
+  /* This line changes the font size of the rows and cells in table. */
+  line-height: 30px;
+  /* This line centers the text vertically. */
+  width: 40%;
+  /* The button will take up 40% of the webpage width. */
+  background-color: #cdfdbb;
+  /* This line is going to make the input green. */
+  text-align: center;
+  /* This line centers text. */
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the input. */
+
+}
+
+.contact-details{
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  padding: 1em 2em;
+  /* This sets the length and width of the input. */
+  font-size: 17px;
+  /* This line changes the font size of the rows and cells in table. */
+  font-weight: bold;
+    /* This line makes the font bold. */
+  line-height: 30px;
+  /* This line centers the text vertically. */
+  width: 100%;
+  /* The button will take up 40% of the webpage width. */
+  background-color: #cdfdbb;
+  /* This line is going to make the input green. */
+  text-align: center;
+  /* This line centers text. */
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the input. */
+}
+
+select {
+  margin: 10px;
+  /* Space around input*/
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  padding: 1em 2em;
+  /* This sets the length and width of the input. */
+  font-size: 15px;
+  /* This line changes the font size of the rows and cells in table. */
+  line-height: 30px;
+  /* This line centers the text vertically. */
+  width: 40%;
+  /* The button will take up 40% of the webpage width. */
+  background-color: #cdfdbb;
+  /* This line is going to make the input green. */
+  text-align: center;
+  /* This line centers text. */
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the input. */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Download chart data button */
+/* This section styles the download chart data button in the Carbon Tax Calculator. */
+a[id=download-chart-data-btn] {
+  margin: 10px;
+  /* Space around input*/
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  padding: 1em 2em;
+  /* This sets the length and width of the button. */
+  font-size: 15px;
+  /* This line changes the font size of the rows and cells in table. */
+  line-height: 30px;
+  /* This line centers the text vertically. */
+  width: 40%;
+  /* The button will take up 40% of the webpage width. */
+  background-color: #adffb0;
+  /* This line is going to make the button green. */
+  text-align: center;
+  /* This line centers text. */
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the button. */
+  display: block;
+  /* This line turns the button into a block. */
+}
+
+/* This section styles the hovering for the Download Chart Data button in the Carbon Tax Calculator. */
+a[id=download-chart-data-btn]:hover {
+  background-size: 110% 110% !important;
+  /* The button is going to get larger when the user hovers over it. */
+  padding: 1.3em 2.1em;
+  /* This sets the length and width of the button hover. */
+  background-color: white;
+  /* The button will be white when the user hovers over it.*/
+  transition: 0.5s;
+  /* The line determines the amount of time it takes to implement the above changes to the button hover. */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* This section styles the body for the Natural Gas Consumption table. */
+#tbodynaturalgas {
+  background-color: #cdfdbb;
+  /* This line changes the colour of the Natural Gas Consumption table body */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* This section styles the body for the Electricity Consumption table. */
+#tbodyelectricity {
+  background-color: #cdfdbb;
+  /* This line changes the colour of the Electricity Consumption table body */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* This section styles the body for the 2023 Results table. */
+.resultstable {
+  background-color: #adffb0;
+  /* This line changes the colour of the 2023 Results table. */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.slider {
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  -webkit-appearance: none;
+  width: 100%;
+  height: 40px;
+  background: #cdfdbb;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slider:hover {
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  background: darkgreen;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+  border: 1px solid black;
+  /* This creates a solid black order for the rows, and cells in the table. */
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  background: darkgreen;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Styling for footer section starts.
+It was taken straight from the style.css file in the Building Benchmarking Website. */
+.site-footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  background-color: #f5f5f5;
+  padding: 20px 0 20px;
+  font-size: 13px;
+  line-height: 23px;
+  color: #3f3f3f;
+}
+
+.site-footer hr {
+  border-top-color: #bbb;
+  opacity: 0.5
+}
+
+.site-footer hr.small {
+  margin: 20px 0
+}
+
+.site-footer h6 {
+  color: #3f3f3f;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 2px
+}
+
+.site-footer a {
+  border: none;
+  color: #3366cc;
+}
+
+.site-footer a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+
+.footer-links {
+  padding-left: 0;
+  list-style: none
+}
+
+.footer-links li {
+  display: block;
+}
+
+.footer-links a {
+  color: #3366cc;
+}
+
+.footer-links a:active,
+.footer-links a:focus,
+.footer-links a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+
+.footer-links.inline li {
+  display: inline-block;
+}
+
+.copyright-text {
+  margin: 0;
+}
+
+
+.site-footer {
+  left: 0;
+  right: 0;
+  width: 100%;
+  bottom: 0;
+  background-color: #f5f5f5;
+  padding: 20px 0 20px;
+  font-size: 9px;
+  line-height: 17px;
+  color: #3f3f3f;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.license p {
+  font-size: px;
+}
+
+.license li {
+  font-size: 14px;
+}
+
+.site-footer {
+  width: 100%;
+  bottom: 0;
+  background-color: #f5f5f5;
+  padding: 20px 0 20px;
+  font-size: 9px;
+  line-height: 17px;
+  color: #3f3f3f;
+}
+
+.footer_container {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.site-footer {
+  width: 100%;
+  font-size: small;
+  line-height: 2;
+  height: 100%;
+}
+
+/* Styling for footer section ends.*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------*/

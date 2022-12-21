@@ -1,0 +1,845 @@
+<!-- This index.html file contains all of the code for the basic outline of the carbon tax calculator -->
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- Start of html file -->
+
+<!-- Tells the computer that the code is written in HTML 5 -->
+<!DOCTYPE html>
+
+<!-- Tells the computer that the code is written in english -->
+<html lang="en">
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- Note: HTML files are divided into two sections. They are called the head and body. -->
+<!-- The head contains information about the html file and does not appear on the webpage. -->
+<!-- The body contains information about how the webpage should look like. -->
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- Start of head section -->
+
+<head>
+    <!-- Metadata for the HTML file -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of HTML file -->
+    <title>Carbon Tax Calculator</title>
+
+    <!-- Import external files as frameworks to use when coding -->
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- Bootstrap version 4.6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <!-- Bootstrap Select -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
+    <!-- Bootstrap version 3.2.0 -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/131b464ec7.js" crossorigin="anonymous"></script>
+    <!-- Jquery -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- style.css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- End of head section -->
+</head>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- Start of body section -->
+
+<body>
+
+    <!-- When the Carbon Tax Calculator loads, the graphs will disappear and reappear during the results section. -->
+
+    <body onload="hide_graphs()"></body>
+
+    <!-- This line creates the Rushby Energy logo for the webpage -->
+    <a href="https://www.rushbyenergy.com" target="_blank"><img src="logo.png"></a>
+
+    <br> <!-- Blank Space -->
+    <br> <!-- Blank Space -->
+    <br> <!-- Blank Space -->
+
+    <!-- Starting webpage when the Carbon Tax Calculator loads -->
+    <div id="start-carbon-tax-calculator">
+        <!-- This line creates the text between the h2 and p when the Carbon Tax Calculator starts. -->
+        <h2>
+            <center>Carbon Tax Calculator</center>
+        </h2>
+        <p>
+            <center> The Carbon Tax Calculator will determine possible savings when implementing more efficient
+                energy systems into facilities and considering the climbing carbon tax. </center>
+        </p>
+
+        <br> <!-- Blank Space -->
+
+        <!-- This section creates the right arrow inside circle icon for the button -->
+        <center><button id="start-carbon-tax-calculator-btn">Start <span class="fa-stack" style="float:right"><i
+                        class="fa-solid fa-circle fa-stack-2x" style="color:black"></i> <i
+                        class="fa-solid fa-arrow-right fa-stack-1x fa-inverse"></i> </span> </button></center>
+    </div>
+
+    <!-- Equipment Information Page -->
+    <div id="equipment-information-user-input" style="display:none">
+
+        <br> <!-- Blank Space -->
+
+        <!-- This line creates the text below when the Equipment Information starts. -->
+        <h2>
+            <center> Step 1 out of 2 - Natural Gas and Electricity Annual Consumption </center>
+        </h2>
+        <p>
+            <center>Please enter your natural gas and electricity annual consumption information below.
+            </center>
+        </p>
+
+        <br> <!-- Blank Space -->
+        <br> <!-- Blank Space -->
+
+        <!-- This line creates the user input for Space Heating Natural Gas Efficiency. -->
+        <th>
+            <center> What kind of customer are you? </center>
+        </th>
+        <center>
+            <div id="customertype">
+                <select required id="select">
+                    <option value="">Please choose one of the following.</option>
+                    <option value="residential" id="residential">Residential</option>
+                    <option value="business" id="business">Business</option>
+                </select>
+            </div>
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <!-- This line creates the user input for Space Heating Natural Gas Efficiency. -->
+            <h4>
+                <center> Natural Gas </center>
+            </h4>
+            <th>
+                <center>Annual Natural Gas Consumption</center>
+            </th>
+            <input type="number" placeholder="2385 m3" id="natural-gas">
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <!-- This line creates the user input for DHW Natural Gas Efficiency. -->
+            <th>
+                <center>Annual Natural Gas Cost</center>
+            </th>
+            <input type="number" placeholder="$749.24" id="natural-gas-cost">
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <!-- This line creates the user input for DHW Natural Gas Efficiency. -->
+            <h4>
+                <center> Electricity </center>
+            </h4>
+            <th>
+                <center>Annual Electricity Consumption</center>
+            </th>
+            <input type="number" placeholder="11135 kWh" id="electricity">
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <!-- This line creates the user input for Space Heating Natural Gas Efficiency. -->
+            <th>
+                <center>Annual Electricity Cost</center>
+            </th>
+            <input type="number" placeholder="$968.75" id="electricity-cost">
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <br> <!-- Blank Space -->
+
+            <center><button id="change-equipment-btn">Submit
+
+                    <!-- This section creates the right arrow inside circle icon for the button -->
+                    <span class="fa-stack" style="float:right"><i class="fa-solid fa-circle fa-stack-2x"
+                            style="color:black"></i> <i class="fa-solid fa-arrow-right fa-stack-1x fa-inverse"></i>
+                    </span></button></center>
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+    </div>
+
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- Fuel Cost Escalation/Year -->
+    <div id="fuel-cost-escalation-user-input" style="display:none">
+
+
+        <!-- This line creates the text below when the Fuel Cost Escalation / Year Information starts. -->
+        <h2>
+            <center> Step 2 out of 2 - Equipment and Fuel Cost Escalation Information </center>
+        </h2>
+        <p>
+            <center>Please enter your equipment information below.
+            </center>
+        </p>
+
+        <br> <!-- Blank Space -->
+
+        <center>
+            <h4>
+                <center> Current Equipment </center>
+            </h4>
+            <!-- This line creates the user input for Space Heating Natural Gas Efficiency. -->
+            <th>
+                <center>Space Heating Natural Gas Efficiency</center>
+            </th>
+            <input type="number" placeholder="90%" id="space-heating-natural-gas-efficiency"
+                style="text-align: center;">
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <!-- This line creates the user input for DHW Natural Gas Efficiency. -->
+            <th>
+                <center>Hot Water Natural Gas Efficiency</center>
+            </th>
+            <input type="number" placeholder="90%" id="dhw-natural-gas-efficiency" style="text-align: center;">
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <!-- This line creates the user input for Space Heating Electricity Efficiency. -->
+            <h4>
+                <center> Electrical Replacement </center>
+            </h4>
+            <th>
+                <center>Space Heating Electricity Efficiency</center>
+            </th>
+            <input type="number" placeholder="230%" id="space-heating-electricity-efficiency"
+                style="text-align: center;">
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <!-- This line creates the user input for DHW Electricity Efficiency. -->
+            <th>
+                <center>Hot Water Electricity Efficiency</center>
+            </th>
+            <input type="number" placeholder="100%" id="dhw-electricity-efficiency" style="text-align: center;">
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <h4>
+                <center>Fuel Cost Escalation / Year
+                </center>
+            </h4>
+            <center>
+                <!-- User Input -->
+
+                <!-- This line creates the user input for Gas Price Escalator (%). -->
+                <th>
+                    <center>Gas Price Escalator (%)</center>
+                </th>
+                <input type="number" placeholder="1%" id="gas-price-escalator">
+
+                <br> <!-- Blank Space -->
+                <br> <!-- Blank Space -->
+
+                <!-- This line creates the user input for Electricity Price Escalator (%). -->
+                <th>
+                    <center>Electricity Price Escalator (%)</center>
+                </th>
+                <input type="number" placeholder="1%" id="electricity-price-escalator">
+
+                <br> <!-- Blank Space -->
+                <br> <!-- Blank Space -->
+
+                <!-- This line creates the user input for Customer Gas Charge Escalator (%). -->
+                <th>
+                    <center>Customer Gas Charge Escalator (%)</center>
+                </th>
+                <input type="number" placeholder="1%" id="customer-gas-charge-escalator">
+
+            </center>
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <p>Drag the slider to show the estimated amount of hot water heating and space heating.</p>
+
+            <input type="range" min="0" max="100" value="50" class="slider" id="sliderrange">
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+
+            <center>
+                <div class="input-text">
+                    <th>Hot Water Heating: <span id="hotwaterheatingtext"></span><span class="fa-stack"
+                            style="float:right"><i class="fa-solid fa-circle fa-stack-2x" style="color:black"></i> <i
+                                class="fa-solid fa-arrow-right fa-stack-1x fa-inverse"></i>
+                        </span></th>
+                </div>
+            </center>
+
+            <br> <!-- Blank Space -->
+
+            <center>
+                <div class="input-text">
+                    <th>Space Heating: <span id="spaceheatingtext"></span><span class="fa-stack" style="float:right"><i
+                                class="fa-solid fa-circle fa-stack-2x" style="color:black"></i> <i
+                                class="fa-solid fa-arrow-left fa-stack-1x fa-inverse"></i>
+                        </span></th>
+                </div>
+            </center>
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+            <!-- This section creates the right arrow inside circle icon for the button -->
+            <center><button id="calculate-carbon-tax-btn">Calculate Carbon Tax <span class="fa-stack"
+                        style="float:right"><i class="fa-solid fa-circle fa-stack-2x" style="color:black"></i> <i
+                            class="fa-solid fa-arrow-right fa-stack-1x fa-inverse"></i>
+                    </span></button></center>
+
+            <br> <!-- Blank Space -->
+
+            <center><button id="go-back-to-change-equipment-btn">
+                    Go Back to Equipment
+
+                    <!-- This section creates the left arrow inside circle icon for the button -->
+                    <span class="fa-stack" style="float:right"><i class="fa-solid fa-circle fa-stack-2x"
+                            style="color:black"></i> <i class="fa-solid fa-arrow-left fa-stack-1x fa-inverse"></i>
+                    </span> </i> </button></center>
+
+            <br> <!-- Blank Space -->
+            <br> <!-- Blank Space -->
+
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="carbon-tax-calculator-results-text" style="display:none">
+
+        <div class="contact-details">
+            <th>
+                For a more detailed assessment, please contact Rushby Energy Solutions Inc.
+            </th>
+        </div>
+
+        <br> <!-- Blank Space -->
+
+        <h2>
+            <center>Carbon Tax Calculator Results</center>
+        </h2>
+
+        <br> <!-- Blank Space -->
+
+        <center>
+            <h4>Scenario 1 - Status Quo</h4>
+        </center>
+        <p>
+            <center>Describes the future charges if there are no changes to the system.
+            </center>
+        </p>
+
+        <br> <!-- Blank Space -->
+
+        <center>
+            <h4>Scenario 2 - Convert to Electric Space Heating</h4>
+        </center>
+        <p>
+            <center>Explores the charges and savings if electric heat pump space heating is implemented.</center>
+        </p>
+
+        <br> <!-- Blank Space -->
+
+        <center>
+            <h4>Scenario 3 - Convert to Electric Space Heating and Electric Water (Assumes no other gas equipment)</h4>
+        </center>
+        <p>
+            <center>Examines changes if an electric heat pump is implemented for space heating and hot water (DHW).
+            </center>
+        </p>
+
+        <br> <!-- Blank Space -->
+        <br> <!-- Blank Space -->
+
+        <h4>
+            <center>The Cost of All Three Scenarios in 2023</center>
+        </h4>
+        <center>
+            <table class="resultstable">
+                <thead>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>
+                            <center> Scenario 1 </center>
+                        </th>
+                        <th id="three-scenarios-scenario-1-2023-result">
+                            <center>$0</center>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <center>Scenario 2 </center>
+                        </th>
+                        <th id="three-scenarios-scenario-2-2023-result">
+                            <center>$0</center>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <center>Scenario 3 </center>
+                        </th>
+                        <th id="three-scenarios-scenario-3-2023-result">
+                            <center>$0</center>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+
+        <br> <!-- Blank Space -->
+        <br> <!-- Blank Space -->
+
+    </div>
+    <div id="three-scenarios-text" style="display:none">
+
+        <h4>
+            <center>The Cost of All Three Scenarios in 2023 to 2030</center>
+        </h4>
+    </div>
+    <canvas id="three-scenarios" style="width:100%; max-width:100%;"></canvas>
+
+    <br> <!-- Blank Space -->
+    <br> <!-- Blank Space -->
+
+    <div id="download-chart-data-button" style="display:none">
+
+        <br> <!-- Blank Space -->
+        <br> <!-- Blank Space -->
+
+        <center>
+
+            <!-- This section creates the download arrow inside circle icon for the button -->
+            <a href="#" id="download-chart-data-btn">Download Chart Data <span class="fa-stack" style="float:right"><i
+                        class="fa-solid fa-circle fa-stack-2x" style="color:black"></i> <i
+                        class="fa-solid fa-download fa-stack-1x fa-inverse"></i></span></a>
+        </center>
+
+    </div>
+
+    <div id="table-results" style="display:none">
+
+        <br> <!-- Blank Space -->
+        <br> <!-- Blank Space -->
+        <br> <!-- Blank Space -->
+
+        <!-- This is the table where the data for scenarios for 1, 2, and 3 will appear after they click on the "Download Chart Data" button -->
+        <table id="exportedresultstable" class="fixed_headers" style="width:100%; display:none">
+            <tr>
+                <th>Scenario 1</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <th>2023</th>
+                <th>2024</th>
+                <th>2025</th>
+                <th>2026</th>
+                <th>2027</th>
+                <th>2028</th>
+                <th>2029</th>
+                <th>2030</th>
+            </tr>
+            <tr>
+                <th id>Gas Commodity</th>
+                <th id="scenario-1-gas-commodity-2023">$0</th>
+                <th id="scenario-1-gas-commodity-2024">$0</th>
+                <th id="scenario-1-gas-commodity-2025">$0</th>
+                <th id="scenario-1-gas-commodity-2026">$0</th>
+                <th id="scenario-1-gas-commodity-2027">$0</th>
+                <th id="scenario-1-gas-commodity-2028">$0</th>
+                <th id="scenario-1-gas-commodity-2029">$0</th>
+                <th id="scenario-1-gas-commodity-2030">$0</th>
+            </tr>
+            <tr>
+                <th id>Carbon Price</th>
+                <th id="scenario-1-carbon-price-2023">$0</th>
+                <th id="scenario-1-carbon-price-2024">$0</th>
+                <th id="scenario-1-carbon-price-2025">$0</th>
+                <th id="scenario-1-carbon-price-2026">$0</th>
+                <th id="scenario-1-carbon-price-2027">$0</th>
+                <th id="scenario-1-carbon-price-2028">$0</th>
+                <th id="scenario-1-carbon-price-2029">$0</th>
+                <th id="scenario-1-carbon-price-2030">$0</th>
+            </tr>
+            <tr>
+                <th id>Customer Gas Charge</th>
+                <th id="scenario-1-customer-gas-charge-2023">$0</th>
+                <th id="scenario-1-customer-gas-charge-2024">$0</th>
+                <th id="scenario-1-customer-gas-charge-2025">$0</th>
+                <th id="scenario-1-customer-gas-charge-2026">$0</th>
+                <th id="scenario-1-customer-gas-charge-2027">$0</th>
+                <th id="scenario-1-customer-gas-charge-2028">$0</th>
+                <th id="scenario-1-customer-gas-charge-2029">$0</th>
+                <th id="scenario-1-customer-gas-charge-2030">$0</th>
+            </tr>
+            <tr>
+                <th id>Total</th>
+                <th id="scenario-1-total-2023">$0</th>
+                <th id="scenario-1-total-2024">$0</th>
+                <th id="scenario-1-total-2025">$0</th>
+                <th id="scenario-1-total-2026">$0</th>
+                <th id="scenario-1-total-2027">$0</th>
+                <th id="scenario-1-total-2028">$0</th>
+                <th id="scenario-1-total-2029">$0</th>
+                <th id="scenario-1-total-2030">$0</th>
+
+                <!-- Blank row to seperate scenario 1 and 2 starts -->
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <!-- Blank row to seperate scenario 1 and 2 ends -->
+
+            <tr>
+                <th>Scenario 2</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <th>Year</th>
+            <th>2023</th>
+            <th>2024</th>
+            <th>2025</th>
+            <th>2026</th>
+            <th>2027</th>
+            <th>2028</th>
+            <th>2029</th>
+            <th>2030</th>
+            </tr>
+            <tr>
+                <th>Gas Commodity</th>
+                <th id="scenario-2-gas-commodity-2023">$0</th>
+                <th id="scenario-2-gas-commodity-2024">$0</th>
+                <th id="scenario-2-gas-commodity-2025">$0</th>
+                <th id="scenario-2-gas-commodity-2026">$0</th>
+                <th id="scenario-2-gas-commodity-2027">$0</th>
+                <th id="scenario-2-gas-commodity-2028">$0</th>
+                <th id="scenario-2-gas-commodity-2029">$0</th>
+                <th id="scenario-2-gas-commodity-2030">$0</th>
+            </tr>
+            <tr>
+                <th>Carbon Price</th>
+                <th id="scenario-2-carbon-price-2023">$0</th>
+                <th id="scenario-2-carbon-price-2024">$0</th>
+                <th id="scenario-2-carbon-price-2025">$0</th>
+                <th id="scenario-2-carbon-price-2026">$0</th>
+                <th id="scenario-2-carbon-price-2027">$0</th>
+                <th id="scenario-2-carbon-price-2028">$0</th>
+                <th id="scenario-2-carbon-price-2029">$0</th>
+                <th id="scenario-2-carbon-price-2030">$0</th>
+            </tr>
+            <tr>
+                <th>Customer</th>
+                <th id="scenario-2-customer-2023">$0</th>
+                <th id="scenario-2-customer-2024">$0</th>
+                <th id="scenario-2-customer-2025">$0</th>
+                <th id="scenario-2-customer-2026">$0</th>
+                <th id="scenario-2-customer-2027">$0</th>
+                <th id="scenario-2-customer-2028">$0</th>
+                <th id="scenario-2-customer-2029">$0</th>
+                <th id="scenario-2-customer-2030">$0</th>
+            </tr>
+            <tr>
+                <th>Gas Total</th>
+                <th id="scenario-2-gas-total-2023">$0</th>
+                <th id="scenario-2-gas-total-2024">$0</th>
+                <th id="scenario-2-gas-total-2025">$0</th>
+                <th id="scenario-2-gas-total-2026">$0</th>
+                <th id="scenario-2-gas-total-2027">$0</th>
+                <th id="scenario-2-gas-total-2028">$0</th>
+                <th id="scenario-2-gas-total-2029">$0</th>
+                <th id="scenario-2-gas-total-2030">$0</th>
+            </tr>
+            <tr>
+                <th>Electricity Commodity</th>
+                <th id="scenario-2-electricity-commodity-2023">$0</th>
+                <th id="scenario-2-electricity-commodity-2024">$0</th>
+                <th id="scenario-2-electricity-commodity-2025">$0</th>
+                <th id="scenario-2-electricity-commodity-2026">$0</th>
+                <th id="scenario-2-electricity-commodity-2027">$0</th>
+                <th id="scenario-2-electricity-commodity-2028">$0</th>
+                <th id="scenario-2-electricity-commodity-2029">$0</th>
+                <th id="scenario-2-electricity-commodity-2030">$0</th>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <th id="scenario-2-total-2023">$0</th>
+                <th id="scenario-2-total-2024">$0</th>
+                <th id="scenario-2-total-2025">$0</th>
+                <th id="scenario-2-total-2026">$0</th>
+                <th id="scenario-2-total-2027">$0</th>
+                <th id="scenario-2-total-2028">$0</th>
+                <th id="scenario-2-total-2029">$0</th>
+                <th id="scenario-2-total-2030">$0</th>
+            </tr>
+            <tr>
+                <th>Cash Flow</th>
+                <th id="scenario-2-cash-flow-2023">$0</th>
+                <th id="scenario-2-cash-flow-2024">$0</th>
+                <th id="scenario-2-cash-flow-2025">$0</th>
+                <th id="scenario-2-cash-flow-2026">$0</th>
+                <th id="scenario-2-cash-flow-2027">$0</th>
+                <th id="scenario-2-cash-flow-2028">$0</th>
+                <th id="scenario-2-cash-flow-2029">$0</th>
+                <th id="scenario-2-cash-flow-2030">$0</th>
+            </tr>
+            <th>Year Over Year</th>
+            <th id="scenario-2-year-over-year-2023">$0</th>
+            <th id="scenario-2-year-over-year-2024">$0</th>
+            <th id="scenario-2-year-over-year-2025">$0</th>
+            <th id="scenario-2-year-over-year-2026">$0</th>
+            <th id="scenario-2-year-over-year-2027">$0</th>
+            <th id="scenario-2-year-over-year-2028">$0</th>
+            <th id="scenario-2-year-over-year-2029">$0</th>
+            <th id="scenario-2-year-over-year-2030">$0</th>
+
+            <!-- Blank row to seperate scenario 2 and 3 starts -->
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <!-- Blank row to seperate scenario 2 and 3 ends -->
+
+            <tr>
+                <th>Scenario 3</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <th>Year</th>
+            <th>2023</th>
+            <th>2024</th>
+            <th>2025</th>
+            <th>2026</th>
+            <th>2027</th>
+            <th>2028</th>
+            <th>2029</th>
+            <th>2030</th>
+            </tr>
+            <th>Gas Commodity</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            </tr>
+            <th>Carbon Price</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            </tr>
+            <th>Customer</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            <th>$0</th>
+            </tr>
+            <th>Electricity Commodity</th>
+            <th id="scenario-3-electricity-commodity-2023">$0</th>
+            <th id="scenario-3-electricity-commodity-2024">$0</th>
+            <th id="scenario-3-electricity-commodity-2025">$0</th>
+            <th id="scenario-3-electricity-commodity-2026">$0</th>
+            <th id="scenario-3-electricity-commodity-2027">$0</th>
+            <th id="scenario-3-electricity-commodity-2028">$0</th>
+            <th id="scenario-3-electricity-commodity-2029">$0</th>
+            <th id="scenario-3-electricity-commodity-2030">$0</th>
+            </tr>
+            <th>Total</th>
+            <th id="scenario-3-total-2023">$0</th>
+            <th id="scenario-3-total-2024">$0</th>
+            <th id="scenario-3-total-2025">$0</th>
+            <th id="scenario-3-total-2026">$0</th>
+            <th id="scenario-3-total-2027">$0</th>
+            <th id="scenario-3-total-2028">$0</th>
+            <th id="scenario-3-total-2029">$0</th>
+            <th id="scenario-3-total-2030">$0</th>
+            </tr>
+            <th>Cash Flow</th>
+            <th id="scenario-3-cash-flow-2023">$0</th>
+            <th id="scenario-3-cash-flow-2024">$0</th>
+            <th id="scenario-3-cash-flow-2025">$0</th>
+            <th id="scenario-3-cash-flow-2026">$0</th>
+            <th id="scenario-3-cash-flow-2027">$0</th>
+            <th id="scenario-3-cash-flow-2028">$0</th>
+            <th id="scenario-3-cash-flow-2029">$0</th>
+            <th id="scenario-3-cash-flow-2030">$0</th>
+            </tr>
+            <th>Year Over Year</th>
+            <th id="scenario-3-year-over-year-2023">$0</th>
+            <th id="scenario-3-year-over-year-2024">$0</th>
+            <th id="scenario-3-year-over-year-2025">$0</th>
+            <th id="scenario-3-year-over-year-2026">$0</th>
+            <th id="scenario-3-year-over-year-2027">$0</th>
+            <th id="scenario-3-year-over-year-2028">$0</th>
+            <th id="scenario-3-year-over-year-2029">$0</th>
+            <th id="scenario-3-year-over-year-2030">$0</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <br> <!-- Blank Space -->
+        <br> <!-- Blank Space -->
+        <br> <!-- Blank Space -->
+        <br> <!-- Blank Space -->
+
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="recalculate-carbon-tax-calculator-button" style="display:none">
+        <br>
+        <center><button id="restart-btn">Recalculate Carbon Tax<span class="fa-stack" style="float:right"><i
+                        class="fa-solid fa-circle fa-stack-2x" style="color:black"></i> <i
+                        class="fa-solid fa-rotate-right fa-stack-1x fa-inverse"></i></span></button></center>
+        <br> <!-- Blank Space -->
+        <br> <!-- Blank Space -->
+
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- This section crates the progress bar. 
+    The style="display:none" means that it starts off invisible and appears when the user hits the "Start" button -->
+    <div id='progress-bar-user-input' style="display:none">
+        <center>
+            <div class="progress active">
+                <!-- The style="width:0%" means that the progress bar will start at 0% when it appears -->
+                <div class="progress-bar progress-bar-success" style="width:0%">
+                </div>
+            </div>
+        </center>
+        <br>
+    </div>
+
+    <br> <!-- Blank Space -->
+    <br> <!-- Blank Space -->
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- Files in JS Folder -->
+    <script src="app.js"></script>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- Footer Starts 
+    The code was taken from the index.html file in Building Benchmarking Website -->
+    <footer class="site-footer" id="f1">
+        <div class="footer_container">
+            <div class="row">
+                <div class="col-8" style="height:4000;">
+                    <h6>About Us</h6>
+                    <p class="text-justify">Rushby Energy Solutions Inc. is an independent energy efficiency consulting
+                        firm founded in 2011
+                        and headquartered in Waterloo, Ontario. We pride ourselves in providing unbiased and sound
+                        technical analysis in support
+                        of our customers' energy goals. We specialize in listening to our customers' needs and providing
+                        focused, understandable solutions.</p>
+                </div>
+                <div class="col-4">
+                    <h6>Contact</h6>
+                    <ul class="footer-links">
+                        <li>Email: info@rushbyenergy.com</li>
+                        <li>Tel: 226-747-5066</li>
+                        <li>Website: <a href="https://www.rushbyenergy.com"
+                                target="_blank">https://www.rushbyenergy.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="footer_container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright-text">Disclaimer and License Information:<br>No guarantee, implied, or otherwise
+                        is made with respect to these results. Any use of this information by another party, including
+                        as a basis for decisions, are the responsibility of such parties. Rushby Energy Solutions
+                        accepts no responsibility for damages, if any, suffered by any party as a result of decisions
+                        made or actions taken based on the information presented.
+                    </p>
+                    <br> <!-- Blank Space -->
+                    <div class="right">
+                        <center>
+                            Copyright 2023 © Rushby Energy Solutions Inc.
+                        </center>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Ends -->
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+</body>
+<!-- End of body section -->
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+</html>
+<!-- End of html file -->
